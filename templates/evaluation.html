@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Model Evaluation</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<div class="container eval-container">
+
+    {% if error %}
+        <h1 class="eval-title">⚠️ Dataset Error</h1>
+
+        <div class="error-box">
+            {{ error }}
+        </div>
+
+        <a href="/upload" class="eval-back">⬅ Upload Correct Dataset</a>
+
+    {% else %}
+        <h1 class="eval-title">📊 Model Evaluation</h1>
+
+        <div class="eval-grid">
+            <div class="eval-card r2">
+                <h2>R² Score</h2>
+                <p>{{ r2 }}</p>
+            </div>
+
+            <div class="eval-card rmse">
+                <h2>RMSE</h2>
+                <p>{{ rmse }}</p>
+            </div>
+
+            <div class="eval-card mae">
+                <h2>MAE</h2>
+                <p>{{ mae }}</p>
+            </div>
+
+            <div class="eval-card rmsle">
+                <h2>RMSLE</h2>
+                <p>{{ rmsle }}</p>
+            </div>
+        </div>
+
+        <a href="/upload" class="eval-back">⬅ Upload Another Dataset</a>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

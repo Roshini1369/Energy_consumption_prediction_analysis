@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Energy Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🏢 Building Energy Prediction</h1>
+    <p>Enter building parameters</p>
+
+    <form action="/predict" method="post" class="grid">
+        <input name="Relative_Compactness" required placeholder="Relative Compactness">
+        <input name="Surface_Area" required placeholder="Surface Area">
+        <input name="Wall_Area" required placeholder="Wall Area">
+        <input name="Roof_Area" required placeholder="Roof Area">
+        <input name="Overall_Height" required placeholder="Overall Height">
+        <input name="Orientation" required placeholder="Orientation">
+        <input name="Glazing_Area" required placeholder="Glazing Area">
+        <input name="Glazing_Area_Distribution" required placeholder="Glazing Distribution">
+        <button type="submit">⚡ Predict Energy</button>
+    </form>
+
+    <div style="text-align:center; margin-top:25px;">
+        <a href="/dashboard" class="upload-back">📊 Open Dashboard</a> |
+        <a href="/upload" class="upload-back">📂 Upload Dataset</a>
+    </div>
+</div>
+
+</body>
+</html>

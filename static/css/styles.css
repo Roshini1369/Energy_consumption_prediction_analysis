@@ -1,0 +1,231 @@
+/* ================= GLOBAL ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at center, #6366f1 0%, #0f172a 55%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* ================= CONTAINER ================= */
+.container,
+.page {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2.5rem 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  animation: fadeIn 0.8s ease;
+}
+
+/* ================= HEADERS ================= */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #a5b4fc, #f0abfc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+p {
+  color: #c7d2fe;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ================= GLASS CARD ================= */
+.card,
+.upload-box,
+.eval-card {
+  width: 100%;
+  max-width: 1000px;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px);
+
+  border-radius: 22px;
+  padding: 2rem;
+
+  color: #020617;
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.12);
+
+  animation: slideUp 0.6s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.eval-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 80px rgba(99,102,241,0.6);
+}
+
+/* ================= GRID ================= */
+.grid,
+.eval-grid,
+.cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.8rem;
+  margin-top: 2rem;
+}
+
+/* ================= FORM INPUTS ================= */
+input,
+select {
+  padding: 0.7rem 0.8rem;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255,255,255,0.85);
+  color: #020617;
+  outline: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* Placeholder FIX */
+input::placeholder {
+  color: #475569;
+  opacity: 1;
+}
+
+/* Focus */
+input:focus {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 0 0 2px rgba(99,102,241,0.6);
+  color: #020617;
+}
+
+/* ================= BUTTON ================= */
+button,
+.upload-btn,
+.eval-back,
+.back,
+.upload-back {
+  margin-top: 1.5rem;
+  align-self: center;
+
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow: 0 15px 40px rgba(99,102,241,0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+}
+
+button:hover,
+.upload-btn:hover,
+.eval-back:hover,
+.upload-back:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px rgba(99,102,241,0.85);
+}
+
+/* ================= CARD TEXT ================= */
+.card h2,
+.eval-card h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+.card p,
+.eval-card p {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #020617;
+  text-align: center;
+}
+
+/* ================= COLOR-CODED KPI VALUES ================= */
+.card.samples p { color: #6366f1; }
+.card.heating p { color: #f97316; }
+.card.cooling p { color: #0ea5e9; }
+.card.total p { color: #22c55e; }
+.card.r2 p { color: #16a34a; }
+
+/* Hover glow */
+.card:hover p,
+.eval-card:hover p {
+  text-shadow: 0 0 14px rgba(99,102,241,0.35);
+}
+
+/* ================= ERROR ================= */
+.error-box {
+  background: rgba(239, 68, 68, 0.15);
+  border-left: 6px solid #ef4444;
+  padding: 1.4rem;
+  border-radius: 18px;
+  color: #fecaca;
+  font-weight: 600;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* ================= NOTES ================= */
+.note,
+.format-note {
+  margin-top: 1.5rem;
+  padding: 1rem 1.2rem;
+  background: rgba(255,255,255,0.12);
+  border-radius: 16px;
+  font-size: 0.9rem;
+  color: #c7d2fe;
+  max-width: 700px;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .grid,
+  .eval-grid,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>🔮 Energy Prediction Result</h1>
+
+    <!-- RESULT CARDS -->
+    <div class="cards">
+        <div class="card heat">
+            <h2>Heating Load</h2>
+            <p>{{ heating }} kWh</p>
+        </div>
+
+        <div class="card cool">
+            <h2>Cooling Load</h2>
+            <p>{{ cooling }} kWh</p>
+        </div>
+
+        <div class="card total">
+            <h2>Total Energy</h2>
+            <p>{{ total }} kWh</p>
+        </div>
+    </div>
+
+    <!-- BAR CHART -->
+    <canvas id="energyChart" style="margin-top:30px;"></canvas>
+
+    <a href="/" class="back">⬅ Predict Again</a>
+</div>
+
+<script>
+const heating = {{ heating }};
+const cooling = {{ cooling }};
+const total = {{ total }};
+
+new Chart(document.getElementById("energyChart"), {
+    type: "bar",
+    data: {
+        labels: ["Heating Load", "Cooling Load", "Total Energy"],
+        datasets: [{
+            label: "Energy Consumption (kWh)",
+            data: [heating, cooling, total],
+            backgroundColor: ["#f97316", "#38bdf8", "#22c55e"],
+            borderRadius: 10
+        }]
+    },
+    options: {
+        responsive: true,
+        animation: {
+            duration: 1200,
+            easing: "easeOutQuart"
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: "kWh"
+                }
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

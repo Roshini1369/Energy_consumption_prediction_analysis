@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Import Your Dataset</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<div class="container upload-container">
+
+    <h1 class="upload-title">📂 Import Your Dataset</h1>
+    <p class="upload-subtitle">
+        Upload a CSV file to evaluate model performance
+    </p>
+
+    <!-- Upload Form -->
+    <form action="/evaluate" method="post" enctype="multipart/form-data" class="upload-box">
+        <input type="file" name="dataset" accept=".csv" required>
+        <br><br>
+        <button type="submit" class="upload-btn">📊 Evaluate Model</button>
+    </form>
+
+    <!-- Accepted Formats -->
+    <div class="format-note">
+        <strong>Accepted formats:</strong><br>
+        X1–X8 → Features<br>
+        Y1 → Heating Load<br>
+        Y2 → Cooling Load
+    </div>
+
+    <!-- Back Link -->
+    <a href="/" class="upload-back">⬅ Back to Prediction</a>
+
+</div>
+
+</body>
+</html>
